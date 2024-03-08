@@ -1,0 +1,60 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				Este es el encabezado
+			</div>
+		</header>
+		
+		<slot />
+
+		<footer class="container">
+			Este es el pie de pagina
+		</footer>
+	</body>
+</html>
+<style is:global>
+
+	footer{
+		background: pink;
+		height: 32px;
+	}
+	.container{
+		margin: 0 auto;
+		max-width: 800px;
+		background: orange;
+
+	}
+	header {
+		background: green;
+		height: 36px;
+	}
+	html, body {
+		margin: 0;
+		padding: 0;
+		font-family: system-ui, sans-serif;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>

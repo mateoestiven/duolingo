@@ -1,7 +1,16 @@
 ---
 const { title } = Astro.props;
 
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
+
+const name ="flag:co-4x3";
+
+
+const flags = [
+	{flag:'', name:'bandera 1'},
+	{flag:'', name:'bandera 2'},
+	{flag:'', name:'bandera 3'}
+	];
 ---
 
 <!doctype html>
@@ -14,25 +23,55 @@ import { Icon } from 'astro-icon/components'
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="h-16 flex items-center ">
-			<div class="container flex flex-row items-center justify-between max-w-[1200px] mx-auto ">
+		<header class="h-16 flex items-center">
+			<div
+				class="container flex flex-row items-center justify-between max-w-[1200px] mx-auto"
+			>
+				<img src="/duolingo-logo.svg" alt="#" />
 
-				<img src="/duolingo-logo.svg" alt="#">
-				<a class="relative group flex flex-row items-center hover:text-[#c2bfbf] font-extrabold text-gray-400  " href="">
-					IDIOMA DE LA PAGINA
-					<Icon name="mdi:chevron-down" />
+				<a
+					class="relative group flex flex-row items-center hover:text-[#c2bfbf] font-extrabold text-gray-400"
+					href=""
+				>
+					<div class="flex">
+						<div class="flex items-end">
+							IDIOMA DE LA PAGINA
 
-					<div class="absolute top-6 hidden group-hover:block">
-						opciones de menu
+							<Icon name="mdi:chevron-down" />
+						</div>
+
+						<div class="absolute top-6 hidden group-hover:block -translate-x-[45%] ">
+							<div
+								class="-left-50% border-solid border-2 border-gray-400 rounded-2xl h-[580px] w-[350px] static"
+							>
+							{
+								flags.map(flag=>(
+
+								<div>
+									<div>
+										{flag.flag}	
+										<Icon name={name}/>
+										
+									</div>
+									
+									<div>
+										{flag.name}
+										</div>
+									
+								</div>
+										))
+							}
+
+
+							</div>
+						</div>
 					</div>
 				</a>
 			</div>
 		</header>
-		
+
 		<slot />
 
-		<footer class="container">
-			Este es el pie de pagina
-		</footer>
+		<footer class="container">Este es el pie de pagina</footer>
 	</body>
 </html>
